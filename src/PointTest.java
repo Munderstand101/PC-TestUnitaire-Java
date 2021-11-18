@@ -35,7 +35,11 @@ public class PointTest {
     @Test
     public void calculDistance() {
         Point unPoint2 = new Point(6,7);
+
+        //Appel de la méthode à tester sur l'objet de test
         double distance = this.unPoint.calculDistance(unPoint2);
+
+        //Assertion/vérification
         assertTrue("La methode n'as pas ete calculer corectement la distance entre les 2 points", distance==Math.sqrt(Math.pow(4-6,2)+ Math.pow(8-7,2)));
     }
 
@@ -47,19 +51,25 @@ public class PointTest {
 
     @Test
     public void setAbscisse() {
+        //Appel de la méthode à tester
         this.unPoint.setAbscisse(5);
+
+        //Assertion/vérification
         assertTrue("Le setter n'as pas mis a jour correctement l'abscisse du point", this.unPoint.getAbscisse()==5);
     }
 
     @Test
     public void getOrdonnee() {
         double val = this.unPoint.getOrdonnee();
-        assertTrue("Le getteur de l'Ordonnee n'as pas retourner la bonne valeur", val==4 );
+        assertTrue("Le getteur de l'Ordonnee n'as pas retourner la bonne valeur", val==8 );
     }
 
     @Test
     public void setOrdonnee() {
+        //Appel de la méthode à tester
         this.unPoint.setOrdonnee(5);
+
+        //Assertion/vérification
         assertTrue("Le setter n'as pas mis a jour correctement l'Ordonnee du point", this.unPoint.getOrdonnee()==5);
     }
 }

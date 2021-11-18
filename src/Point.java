@@ -24,8 +24,8 @@ public class Point {
     public double calculDistance(Point unPoint) {
         double  resultat = 0.0;
         resultat = Math.sqrt(
-                Math.pow(2,unPoint.getAbscisse()-this.abscisse)+
-                Math.pow(2,unPoint.getOrdonnee()-this.ordonnee)
+                Math.pow(unPoint.getAbscisse()-this.abscisse,2)+
+                Math.pow(unPoint.getOrdonnee()-this.ordonnee,2)
         );
         return resultat;
     }
