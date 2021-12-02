@@ -29,6 +29,7 @@ public class GenPasswordTest {
 
         Boolean maj = false;
         Boolean min = false;
+        Boolean nb = false;
 
         for (char st: pass.toCharArray()) {
             if (Character.isUpperCase(st)){
@@ -37,11 +38,20 @@ public class GenPasswordTest {
             else {
                 min=true;
             }
+            if (Character.isDigit(st))
+            {
+                nb = true;
+            }
+
         }
+
+
 
 
         assertTrue("Le mot de passe n'a pas de majuscules", maj==true);
         assertTrue("Le mot de passe n'a pas de minuscules", min==true);
+        assertTrue("Le mot de passe n'a pas de nombre", nb==true);
+
 
 
 
