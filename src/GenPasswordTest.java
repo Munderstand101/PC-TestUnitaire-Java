@@ -27,13 +27,21 @@ public class GenPasswordTest {
         assertTrue("Le mot de passe n'a pas ete 6 caracteres minimum", pass.length()>=6);
         assertTrue("Le mot de passe n'a pas ete 20 caracteres maximum", pass.length()<=20);
 
-        for (pass:char c) {
-            if (c.isUpperCase()){
+        Boolean maj = false;
+        Boolean min = false;
 
+        for (char st: pass.toCharArray()) {
+            if (Character.isUpperCase(st)){
+                maj=true;
             }
-
+            else {
+                min=true;
+            }
         }
-        assertTrue("Le mot de passe n'a pas ete 20 caracteres maximum", pass.length()<=20);
+
+
+        assertTrue("Le mot de passe n'a pas de majuscules", maj==true);
+        assertTrue("Le mot de passe n'a pas de minuscules", min==true);
 
 
 
