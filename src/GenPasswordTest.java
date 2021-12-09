@@ -141,4 +141,53 @@ public class GenPasswordTest {
 
 
 
+    @Test
+    public void testGetNewPasswordXcaracteresdifferents(){
+        this.genPw = new GenPassword();
+        pass = this.genPw.getPassword();
+
+
+        System.out.println(pass);
+
+        String uniqueLetters ="";
+        for(char aChar:pass.toCharArray()){
+            if(!uniqueLetters.contains(String.valueOf(aChar))){
+                uniqueLetters += String.valueOf(aChar);
+            }
+        }
+
+
+        System.out.println(uniqueLetters);
+        assertTrue("Pas assez de caractères differents", uniqueLetters.length()>(pass.length()-2));
+
+    }
+
+    @Test
+    public void testGetNewPassword2CharConsec(){
+        this.genPw = new GenPassword();
+        pass = this.genPw.getPassword();
+
+        int length = pass.length();
+        System.out.println(pass);
+
+        String a = "";
+        String b = "";
+        System.out.println(a);
+        System.out.println(b);
+        int res = 0;
+        for(int i =0 ; i < length-2 ; i ++){
+            a = pass.substring(i,i+1);
+            System.out.println(a);
+            b = pass.substring(i+1,i+2);
+            System.out.println(b);
+            System.out.println("----");
+            if(a.equals(b)){
+                res = 1;
+                System.out.println("--------------");
+
+            }
+        }
+        assertTrue("eee", res==1);
+
+    }
 }
