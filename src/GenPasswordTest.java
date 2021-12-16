@@ -96,32 +96,23 @@ public class GenPasswordTest {
         boolean charx = false;
 
         for (char aChar : pass.toCharArray()) {
-            if (pass.matches(".*[!@#$%&*()'+,-./:;<=>?\\[\\]^_`{|}].*"))
+            if (pass.matches(".*[!@#$%&*()'+,\\-./:;<=>?\\[\\]^_`{|}].*"))
             {
                 charx = true;
                 break;
             }
         }
 
-      //  assertTrue("Le mot de passe n'a pas de charactesres speciaux", charx==true);
+        assertTrue("Le mot de passe n'a pas de charactesres speciaux", charx==true);
 
     }
 
     @Test
     public void testGetNewPasswordNoSpaceChars () {
         String pass = this.genPw.getNewPassword(8);
-        boolean charx = false;
-        for (char aChar : pass.toCharArray()) {
-
-            if (pass.matches(".*[\\s\\t\\n].*"))
-            {
-                charx = true;
-                break;
-            }
-        }
-        assertTrue("Le mot de passe ne contien pas d'espaces ni de tabulation ni de retour chariot", charx==false);
-
+        assertFalse("Le mot de passe ne contien pas d'espaces ni de tabulation ni de retour chariot", pass.matches(".*[\\s\\t\\n].*"));
     }
+
     @Test
     public void testGetNewPasswordNoQuoteChars () {
         String pass = this.genPw.getNewPassword(8);
@@ -139,25 +130,25 @@ public class GenPasswordTest {
 
     }
 
+    @Test
+    public void testGetNewPasswordTailleX() {
+        String pass = this.genPw.getNewPassword(8);
+        assertTrue("Le mot de passe n'a pas 8 caracteres", pass.length() == 8);
+    }
 
-
+//Helyoo
     @Test
     public void testGetNewPasswordXcaracteresdifferents(){
-        this.genPw = new GenPassword();
-        pass = this.genPw.getPassword();
-
-
-        System.out.println(pass);
+        String pass = this.genPw.getNewPassword(8);
 
         String uniqueLetters ="";
+
         for(char aChar:pass.toCharArray()){
             if(!uniqueLetters.contains(String.valueOf(aChar))){
                 uniqueLetters += String.valueOf(aChar);
             }
         }
 
-
-        System.out.println(uniqueLetters);
         assertTrue("Pas assez de caractères differents", uniqueLetters.length()>(pass.length()-2));
 
     }

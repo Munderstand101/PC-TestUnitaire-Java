@@ -11,7 +11,7 @@ public class GenPassword {
     }
 
     public String getNewPassword(int n){
-        this.password = "Az3rtyu]";
+        this.password = "Azzzzzzz3rtyu]";
         return this.password;
     }
 
