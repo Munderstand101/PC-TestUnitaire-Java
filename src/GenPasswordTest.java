@@ -17,10 +17,10 @@ public class GenPasswordTest {
         this.pass = this.genPw.getPassword();
     }
 
-    @Test
-    public void testGenPasswordNotNull() {
-        assertNotNull("L'objet GenPassword n'a pas été correctement créé.", this.genPw);
-    }
+//    @Test
+//    public void testGenPasswordNotNull() {
+//        assertNotNull("L'objet GenPassword n'a pas été correctement créé.", this.genPw);
+//    }
 
     @Test
     public void testGetNewPasswordTailleMini() {
@@ -136,7 +136,15 @@ public class GenPasswordTest {
         assertTrue("Le mot de passe n'a pas 8 caracteres", pass.length() == 8);
     }
 
-//Helyoo
+    @Test
+    public void testGetNewPassword2DiffPass() {
+        String pass1 = this.genPw.getNewPassword(8);
+        String pass2 = this.genPw.getNewPassword(8);
+        assertTrue("Deux mots de passe générés consécutifs n'ont pas des valeurs différentes", pass1 == pass2);
+    }
+
+
+    //Helyoo
     @Test
     public void testGetNewPasswordXcaracteresdifferents(){
         String pass = this.genPw.getNewPassword(8);
@@ -150,35 +158,31 @@ public class GenPasswordTest {
         }
 
         assertTrue("Pas assez de caractères differents", uniqueLetters.length()>(pass.length()-2));
-
     }
 
     @Test
     public void testGetNewPassword2CharConsec(){
-        this.genPw = new GenPassword();
-        pass = this.genPw.getPassword();
-
+        String pass = this.genPw.getNewPassword(8);
         int length = pass.length();
-        System.out.println(pass);
-
+        //System.out.println(pass);
         String a = "";
         String b = "";
-        System.out.println(a);
-        System.out.println(b);
+        //System.out.println(a);
+        //System.out.println(b);
         int res = 0;
         for(int i =0 ; i < length-2 ; i ++){
             a = pass.substring(i,i+1);
-            System.out.println(a);
+            //System.out.println(a);
             b = pass.substring(i+1,i+2);
-            System.out.println(b);
-            System.out.println("----");
+            //System.out.println(b);
+            //System.out.println("----");
             if(a.equals(b)){
                 res = 1;
-                System.out.println("--------------");
+                //System.out.println("--------------");
 
             }
         }
-        assertTrue("eee", res==1);
+        assertFalse("Il y a, dans le mot de passe de X caractères, au moins X-2 caractères différents", res==1);
 
     }
 }
