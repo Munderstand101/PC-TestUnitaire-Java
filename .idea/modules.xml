@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TestUnitaire.iml" filepath="$PROJECT_DIR$/TestUnitaire.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PC-TestUnitaire-Java.iml" filepath="$PROJECT_DIR$/PC-TestUnitaire-Java.iml" />
     </modules>
   </component>
 </project>

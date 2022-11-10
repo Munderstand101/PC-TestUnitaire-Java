@@ -1,5 +1,3 @@
-import java.lang.Math;
-
 public class Point {
 
     private double abscisse;
